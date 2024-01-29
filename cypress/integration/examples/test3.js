@@ -19,10 +19,8 @@ describe("tests", () => {
     cy.get("#opentab").invoke("removeAttr", "target").click();
     cy.origin("https://www.qaclickacademy.com/", () => {
       cy.get("#navbarSupportedContent a[href*='about']").click();
+      cy.wait(8000);
+      cy.get(".mt-50 h2").should("contain", "QAClick Academy");
     });
-    cy.get(".section-title h2").should(
-      "contain",
-      "Welcome to QAClick Academy "
-    );
   });
 });
